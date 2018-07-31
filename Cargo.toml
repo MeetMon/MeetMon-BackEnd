@@ -4,7 +4,15 @@ name = "MeetMon-BackEnd"
 version = "0.1.0"
 authors = ["Dynisious <daniel.bechaz@gmail.com>"]
 
+[lib]
+name = "utils"
+
 [dependencies]
+mongodb = "0.3.10"
+bson = "0.12.2"
+serde_derive = "*"
+serde = "*"
+serde_json = "*"
 
 [dependencies.rocket]
 version = "0.4.0-dev"
