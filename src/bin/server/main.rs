@@ -23,9 +23,10 @@ mod routes;
 use self::routes::*;
 use mongodb::{Client, ThreadedClient, db::ThreadedDatabase,};
 
-static DATABASE_URI: &str = "mongodb://ds249311.mlab.com:49311/meetmon";
-static USERNAME: &str = "meetmon-test";
-static PASSWORD: &str = "1testaccount";
+//static DATABASE_URI: &str = "mongodb://ds249311.mlab.com:49311/meetmon";
+static DATABASE_URI: &str = "mongodb://meetmon-test:1testaccount@ds249311.mlab.com:49311/meetmon";
+//static USERNAME: &str = "meetmon-test";
+//static PASSWORD: &str = "1testaccount";
 static COLLECTION: &str = "event";
 
 fn main() {
@@ -33,8 +34,8 @@ fn main() {
         .expect("Failed to connect to database");
     let database = client.db(COLLECTION);
         
-    database.auth(USERNAME, PASSWORD)
-        .expect("Authentication failed");
+    /* database.auth(USERNAME, PASSWORD)
+        .expect("Authentication failed"); */
 
     let database = RwLock::new(database);
 
