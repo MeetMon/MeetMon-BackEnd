@@ -33,7 +33,7 @@ static DB: &str = "meetmon";
 fn main() {
     let client = Client::connect(IP,MONGO_PORT)
         .expect("Failed to connect to database");
-    let database = client.db("meetmon");
+    let database = client.db(DB);
         
     database.auth(USERNAME, PASSWORD)
         .expect("Authentication failed");
