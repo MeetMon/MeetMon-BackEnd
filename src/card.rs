@@ -8,7 +8,7 @@
 
 use bson::Bson;
 use rocket::{request::FromParam, http::RawStr,};
-use serde_json::from_str;
+use serde_json::{self, from_str,};
 
 #[derive(Serialize, Deserialize,)]
 pub struct Id(Bson);
@@ -24,10 +24,10 @@ impl Into<Bson> for Id {
 }
 
 impl<'a> FromParam<'a> for Id {
-    type Error = ();
+    type Error = serde_json::Error;
 
     fn from_param(param: &'a RawStr) -> Result<Self, Self::Error> {
-        from_str(param.as_str()).map_err(|_| unimplemented!())
+        from_str(param.as_str())
     }
 }
 
