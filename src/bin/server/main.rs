@@ -23,17 +23,18 @@ mod routes;
 use self::routes::*;
 use mongodb::{Client, ThreadedClient, db::ThreadedDatabase,};
 
-static HOST: &str = "ds163781.mlab.com";
-static PORT: u16 = 63781;
-static USERNAME: &str = "meetmon";
-static PASSWORD: &str = "danjohan1";
+static IP: &str = "ds249311.mlab.com";
+static MONGO_PORT: u16 = 49311;
+static USERNAME: &str = "meetmon-test";
+static PASSWORD: &str = "1testaccount";
 static DB: &str = "meetmon";
 
+
 fn main() {
-    let client = Client::connect(HOST, PORT)
+    let client = Client::connect(IP,MONGO_PORT)
         .expect("Failed to connect to database");
     let database = client.db(DB);
-    
+        
     database.auth(USERNAME, PASSWORD)
         .expect("Authentication failed");
 
