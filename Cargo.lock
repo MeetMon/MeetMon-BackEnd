@@ -1,6 +1,6 @@
 [[package]]
 name = "MeetMon-BackEnd"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "bson 0.12.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "mongodb 0.3.10 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -9,7 +9,6 @@ dependencies = [
  "rocket_contrib 0.4.0-dev (git+https://github.com/SergioBenitez/Rocket/)",
  "serde 1.0.70 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_derive 1.0.70 (registry+https://github.com/rust-lang/crates.io-index)",
- "serde_json 1.0.24 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]

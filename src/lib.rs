@@ -13,7 +13,6 @@ extern crate serde;
 extern crate bson;
 extern crate mongodb;
 extern crate rocket;
-extern crate serde_json;
 
 pub mod card;
 pub mod db;

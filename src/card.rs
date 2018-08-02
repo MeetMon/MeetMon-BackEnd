@@ -6,9 +6,8 @@
 //! 
 //! * daniel.bechaz@gmail.com
 
-use bson::Bson;
+use bson::{self, Bson,};
 use rocket::{request::FromParam, http::RawStr,};
-use serde_json::{self, from_str,};
 
 #[derive(Serialize, Deserialize,)]
 pub struct Id(Bson);
@@ -24,10 +23,10 @@ impl Into<Bson> for Id {
 }
 
 impl<'a> FromParam<'a> for Id {
-    type Error = serde_json::Error;
+    type Error = bson::EncoderError;
 
     fn from_param(param: &'a RawStr) -> Result<Self, Self::Error> {
-        from_str(param.as_str())
+        bson::to_bson(param.as_str()).map(Id)
     }
 }
 
